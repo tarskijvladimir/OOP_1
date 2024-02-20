@@ -10,17 +10,20 @@ abstract class Pers {
     protected int health;
     protected int stamina;
     protected String weapon;
+    protected Position position;
+    
 
-    static {
-        Pers.r = new Random();
-    }
+    // static {
+    //     Pers.r = new Random();
+    // }
 
-    protected Pers(int id, String name, int health, int stamina, String weapon){
+    protected Pers(int id, String name, int health, int stamina, String weapon, int x, int y){
         this.id = id;
         this.name = name;
         this.health = health;
         this.stamina = stamina;
         this.weapon = weapon;
+        this.position = new Position(x, y);
     }
 
     @Override
