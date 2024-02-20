@@ -3,10 +3,10 @@
 public class Sniper extends Pers{
     int accuracy;
     int disguise;
-    public Sniper(int id, String name, int health, int stamina, String weapon, int accuracy, int disguise) {
-        super(id, name, health, stamina, weapon);
-        this.accuracy = accuracy;
-        this.disguise = disguise;
+    public Sniper(String name, int x, int y) {
+        super(6, name, 50, 60, 80, x, y);
+        // this.accuracy = accuracy;
+        // this.disguise = disguise;
     }
 
     
