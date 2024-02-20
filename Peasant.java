@@ -4,10 +4,10 @@ public class Peasant extends Pers {
     int strength;
     int agility;
 
-    public Peasant(int id, String name, int health, int stamina, String weapon, int strength, int agility) {
-        super(id, name, health, stamina, weapon);
-        this.strength = strength;
-        this.agility = agility;
+    public Peasant(String name, int x, int y) {
+        super(4, name, 50, 80, 5, x, y);
+        // this.strength = strength;
+        // this.agility = agility;
      
     }
     @Override
