@@ -1,63 +1,106 @@
 
-import java.util.Random;
+import java.util.Comparator;
+import java.util.List;
 
-abstract class Pers {
+public abstract class Pers implements MyInterface{
+    String name;
+    int health;
+    String weapon;
+    int powerHit;
+    int speed;
+    int bronya;
+    int atackRange;
+    int hidding;
+    int maxHealth;
+    int x;
+    int y;
 
-    protected static Random r;
+    String className;
+    public Position position;
 
-    protected int id;
-    protected String name;
-    protected int health;
-    protected int stamina;
-    protected String weapon;
-    protected Position position;
-    
-
-    // static {
-    //     Pers.r = new Random();
-    // }
-
-    protected Pers(int id, String name, int health, int stamina, String weapon, int x, int y){
-        this.id = id;
+    public Pers(String name, int health, String weapon, int powerHit, int speed, int bronya, int atackRange, int hidding, Position position){
+        this.className = this.getClass().getSimpleName();
         this.name = name;
-        this.health = health;
-        this.stamina = stamina;
+        this.maxHealth = this.health = health;
         this.weapon = weapon;
-        this.position = new Position(x, y);
+        this.powerHit = powerHit;
+        this.speed = speed;
+        this.bronya = bronya;
+        this.atackRange = atackRange;
+        this.hidding = hidding;
+        this.position = position;
+
+
     }
 
+
+
+    // Метод вывода информации о персонаже
     @Override
-    public String toString(){
-        // String res = new String();
-        // return res;
-        return "Spearman [ID: " + id + "Name: " + name + "Health: " + health + "Weapon: " + weapon + "Stamina: " + stamina + "]";
+    public String toString() {
+        return  name + ", \u2665: " + health + ",  ⚔ : " + powerHit + ", \uD83D\uDEE1\uFE0F :" + bronya;
     }
 
-    protected void print(){
-        System.out.println("ID: " + id + "Name: " + name + "Health: " + health + "Weapon: " + weapon + "Stamina: " + stamina + "");
+    // Метод вывода короткой информации о персонаже
+    public void printShort() {
+        System.out.println(className + ", Name: " + name +", P: " + position.getX() + "," + position.getY() + ".");
     }
 
-    
+    // Метод нанесения урона
+    public void getHit(float damage) {
+        health -= damage;
+        if (health < 0) health = 0;
+        if (health > maxHealth) health = maxHealth;
 
-    protected void GetDamage(int damage){
-        if (this.health - damage > 0){
-            this.health -= damage;
+    }
+
+    // Метод лечения
+    public void Heall(Monk monk, Pers pers1) {
+        pers1.health = pers1.health + monk.healing;
+
+    }
+
+    // Метод получения урона
+    public void Damag(Pers pers1, Pers pers2) {
+        pers1.health = pers1.health - pers2.powerHit;
+
+    }
+
+    // Метод колдовства
+    public void Magical(Magic magic, Pers pers1) {
+        pers1.health = pers1.health - magic.mana;
+
+    }
+
+    public Pers nearestEnemy(List<Pers> targets) {
+        if (targets.isEmpty()) {
+            return null; // Handle empty list case
         }
-    }
 
-    protected void attack(Pers target){
-        int damage = Pers.r.nextInt(1,5);
-        target.GetDamage(damage);
-    }
+        Pers nearest = null;
+        double minDistance = Double.MAX_VALUE;
 
-    protected void death(Pers target){
-        if (target.getHealth() < 0){
-            System.out.println("ваш персонаж мертв");
+        for (Pers hero : targets) {
+            double distance = position.distance(hero.position);
+            if (distance < minDistance && hero.health > 0) {
+                minDistance = distance;
+                nearest = hero;
+            }
         }
+
+        return nearest;
     }
 
-    public int getHealth(){
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public int getHp(){
         return health;
-    }
+    };
 
+    public String getInfo(){
+        return " ";
+    };
 }
