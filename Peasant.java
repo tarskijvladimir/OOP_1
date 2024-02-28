@@ -1,22 +1,26 @@
-// Крестьянин
+import java.util.ArrayList;
 
+// Крестьянин. Своё свойство - количество стрел
 public class Peasant extends Pers {
-    int strength;
-    int agility;
-
+    int countArrow;
     public Peasant(String name, int x, int y) {
-        super(4, name, 50, 80, 5, x, y);
-        // this.strength = strength;
-        // this.agility = agility;
-     
+        super(name, 150, "arrow", 0, 4, 10, 0, 40, new Position(x,y));
+        countArrow = 0;
     }
+    protected void printname() {
+        System.out.println("Name: " + name);
+    }
+
+
+
     @Override
-    public void attack(Pers target){
-        int damage = Pers.r.nextInt(1.5) * strength * agility;
-        target.GetDamage(damage);
+    public void step(ArrayList<Pers> enemy, ArrayList<Pers> friend) {
+
     }
-    public void work(int hour){
-        stamina -= hour / 4;
-    }
-    
+
+    public String getInfo(){
+        return "Фермер";
+    };
 }
+    
+
