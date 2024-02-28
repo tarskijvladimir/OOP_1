@@ -1,9 +1,7 @@
-import java.util.Random;
+
 
 public enum Names {
-    Ivan, Olga, Kirill, Антон, Сергей, Светлана;
-
-    
+    Ivan, Olga, Kiril, Антон, Сергей, Светлана, Masha, Peter, Mikhail, Bob;
 }
 
 
