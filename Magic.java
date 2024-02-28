@@ -1,12 +1,25 @@
-// Колдун (Sorcerer)
+import java.util.ArrayList;
 
+// Колдун. Своё свойство - мана и магия
 public class Magic extends Pers {
-    int intellect;
     int mana;
+    String magic;
     public Magic(String name, int x, int y) {
-        super(3, name, 50, 60, 20, x, y);
-        // this.intellect = intellect;
-        // this.mana = mana;
+        super(name, 150, "magicStick", 20, 2, 10, 50, 40, new Position(x,y));
+        mana = 200;
+        magic = "wizardDust";
     }
-    
+
+
+
+    @Override
+    public void step(ArrayList<Pers> enemy, ArrayList<Pers> friend) {
+
+    }
+
+    public String getInfo(){
+        return "Волшебник";
+    };
 }
+    
+
