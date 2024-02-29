@@ -47,7 +47,7 @@ public class Main {
 
         while (true) {
 
-            Imagin.imagin();
+            View.view();
             scanner.nextLine();
             int summ1HP = 0;
             int summ2HP = 0;

@@ -1,10 +1,8 @@
+
+    import pers.Pers;
+
 import java.util.Collections;
-//import pers.Pers;
-
-    
-
-
-public class Imagin {
+public class View {
     private static int step = 1;
     private static final int[] l = {0};
     private static final String top10 = formatDiv("a") + String.join("", Collections.nCopies(9, formatDiv("-b"))) + formatDiv("-c");
@@ -31,11 +29,11 @@ public class Imagin {
         for (Pers human: Main.allTeam) {
             if (human.position.getX() == x && human.position.getY() == y){
                 if (human.getHp() == 0) {
-                    out = "|" + (Colors.ANSI_RED + human.getInfo().charAt(0) + Colors.ANSI_RESET);
+                    out = "|" + (AnsiColors.ANSI_RED + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
                     break;
                 }
-                if (Main.darkTeam.contains(human)) out = "|" + (Colors.ANSI_GREEN + human.getInfo().charAt(0) + Colors.ANSI_RESET);
-                if (Main.holyTeam.contains(human)) out = "|" + (Colors.ANSI_BLUE + human.getInfo().charAt(0) + Colors.ANSI_RESET);
+                if (Main.darkTeam.contains(human)) out = "|" + (AnsiColors.ANSI_GREEN + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
+                if (Main.holyTeam.contains(human)) out = "|" + (AnsiColors.ANSI_BLUE + human.getInfo().charAt(0) + AnsiColors.ANSI_RESET);
                 break;
             }
         }
@@ -43,9 +41,9 @@ public class Imagin {
     }
     public static void view() {
         if (step == 1 ){
-            System.out.print(Colors.ANSI_RED + "First step" + Colors.ANSI_RESET);
+            System.out.print(AnsiColors.ANSI_RED + "First step" + AnsiColors.ANSI_RESET);
         } else {
-            System.out.print(Colors.ANSI_RED + "Step:" + step + Colors.ANSI_RESET);
+            System.out.print(AnsiColors.ANSI_RED + "Step:" + step + AnsiColors.ANSI_RESET);
         }
         step++;
         Main.allTeam.forEach((v) -> l[0] = Math.max(l[0], v.toString().length()));
@@ -84,11 +82,5 @@ public class Imagin {
         System.out.println(Main.darkTeam.get(9));
         System.out.println(bottom10);
     }
-
-
-    // public static void imagin() {
-    //     // TODO Auto-generated method stub
-    //     throw new UnsupportedOperationException("Unimplemented method 'imagin'");
-    // }
 }
 
