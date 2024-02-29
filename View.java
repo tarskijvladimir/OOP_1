@@ -1,5 +1,4 @@
-
-    import pers.Pers;
+// import pers.Pers;
 
 import java.util.Collections;
 public class View {
