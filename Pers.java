@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -17,6 +17,7 @@ public abstract class Pers implements MyInterface{
 
     String className;
     public Position position;
+    ArrayList deadList;
 
     public Pers(String name, int health, String weapon, int powerHit, int speed, int bronya, int atackRange, int hidding, Position position){
         this.className = this.getClass().getSimpleName();
