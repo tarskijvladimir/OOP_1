@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 // Снайпер. Своё свойство - нет уникальностей
+
 public class Sniper extends Pers {
     int countArrow;
 
@@ -19,6 +20,7 @@ public class Sniper extends Pers {
     public void step(ArrayList<Pers> enemy, ArrayList<Pers> friend) {
         if ((health <= 0) || (countArrow == 0)) return;
         Pers target = super.nearestEnemy(enemy);
+        if (target == null) return;
         target.getHit(this.powerHit);
         countArrow--;
     }
@@ -26,4 +28,4 @@ public class Sniper extends Pers {
     public String getInfo(){
         return "Снайпер";
     }
-}
+} 
