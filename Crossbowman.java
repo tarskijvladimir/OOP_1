@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 // Арбалетчик. Своё свойство - количество стрел
+
 public class Crossbowman extends Pers {
     int countArrow;
     public Crossbowman(String name, int x, int y) {
@@ -26,16 +27,33 @@ public class Crossbowman extends Pers {
     public void step(ArrayList<Pers> enemy, ArrayList<Pers> friend) {
         if ((health<=0) || (countArrow == 0)) return;
         Pers target = super.nearestEnemy(enemy);
+        if (target == null) return;
         target.getHit(this.powerHit);
+
+        for (Pers pers : friend) {
+            if (pers.getInfo().equals("Фермер") && !((Peasant)pers).flag) {
+                ((Peasant)pers).flag = true;
+                return;
+            }
+
+        }
         countArrow--;
 
 
 
 
     }
+    public int getCountArrow() {
+        return countArrow;
+    }
+
+
+
+    
 
     public String getInfo(){
-        return "Арбалетчик";};
+        return "Арбалетчик";
+    };
 
 
 
