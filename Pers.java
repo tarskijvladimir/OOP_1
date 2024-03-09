@@ -69,7 +69,7 @@ public abstract class Pers implements MyInterface{
 
     // Метод колдовства
     public void Magical(Magic magic, Pers pers1) {
-        pers1.health = pers1.health - magic.mana;
+        pers1.health = pers1.health - magic.magia;
 
     }
 

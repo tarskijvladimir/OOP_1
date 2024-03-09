@@ -30,13 +30,17 @@ public class Position {
         return d;
     }
 
-    public Position getDifference(Position target) {
-        Position dif = new Position(x - target.x, y - target.y);
+    public Position getDifference(Position position) {
+        Position dif = new Position(x - position.x, y - position.y);
         return dif;
     }
- public boolean equals (Position target){
+    public boolean equals (Position target){
         return x == target.x && y == target.y;
  }
+
+
+
+
 
 
 

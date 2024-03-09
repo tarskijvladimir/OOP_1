@@ -29,6 +29,8 @@ public class Crossbowman extends Pers {
         Pers target = super.nearestEnemy(enemy);
         if (target == null) return;
         target.getHit(this.powerHit);
+ 
+       
 
         for (Pers pers : friend) {
             if (pers.getInfo().equals("Фермер") && !((Peasant)pers).flag) {
